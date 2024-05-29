@@ -1,6 +1,18 @@
 <h1 align="center">AI Emoji Embellisher</h1>
 
 <p align="justify">
-  Apps.Emoji.Embellisher is a Rocket.Chat app that will add emoji to an old-school plain text message. The app leverages modern open source LLMs (Mistral, Llama2, Phi, and so on) to inject    the emojis. Users can adjust the level of embellishment, and can ask for a redo if needed. Users can make some small edits after emjois are added. The finally accepted message would be      available to be injected into the current channel, shared to external application, or copied to system clipboard.
+  A Rocket.Chat app that leverages open-source LLMs (Mistral, Llama, Phi, Gemma and so on) to turn boring old-school text messages into sensitive modern emojified texts.
 </p>
+
+
+## Documentation
+Some links to examples and documentation:
+- [Rocket.Chat Apps TypeScript Definitions Documentation](https://rocketchat.github.io/Rocket.Chat.Apps-engine/)
+- [Rocket.Chat Apps TypeScript Definitions Repository](https://github.com/RocketChat/Rocket.Chat.Apps-engine)
+- [Example Rocket.Chat Apps](https://github.com/graywolf336/RocketChatApps)
+- [#rocketchat-apps on Open.Rocket.Chat](https://open.rocket.chat/channel/rocketchat-apps)
+- Community Forums
+  - [App Requests](https://forums.rocket.chat/c/rocket-chat-apps/requests)
+  - [App Guides](https://forums.rocket.chat/c/rocket-chat-apps/guides)
+  - [Top View of Both Categories](https://forums.rocket.chat/c/rocket-chat-apps)
 
