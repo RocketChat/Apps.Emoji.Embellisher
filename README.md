@@ -1,7 +1,7 @@
 <h1 align="center">AI Emoji Embellisher</h1>
 
 <p align="justify">
-  A Rocket.Chat app that leverages open-source LLMs (Mistral, Llama, Phi, Gemma and so on) to turn boring old-school text messages into sensitive modern emojified texts.
+  A Rocket.Chat app that leverages open-source large language models - LLMs (Mistral, Llama, Phi, Gemma and so on) to turn boring old-school text messages into sensitive modern emojified texts.
 </p>
 
 
