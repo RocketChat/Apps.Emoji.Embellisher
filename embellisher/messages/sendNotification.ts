@@ -1,20 +1,19 @@
 import { IModify, IRead } from '@rocket.chat/apps-engine/definition/accessors';
-import { SlashCommandContext } from '@rocket.chat/apps-engine/definition/slashcommands';
+import { IRoom } from '@rocket.chat/apps-engine/definition/rooms';
+import { IUser } from '@rocket.chat/apps-engine/definition/users';
 
 export async function sendNotification(
-    context: SlashCommandContext,
+    user: IUser,
+    room: IRoom,
     modify: IModify,
     read: IRead,
     text: string
 ): Promise<void> {
-    const room = context.getRoom();
-    const user = context.getSender();
 
     const notifier = read.getNotifier();
     const messageBuilder = notifier.getMessageBuilder();
 
-    messageBuilder.setText(text)
-    messageBuilder.setRoom(room);
+    messageBuilder.setRoom(room).setText(text);
 
     await notifier.notifyUser(user, messageBuilder.getMessage());
 }

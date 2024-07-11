@@ -1,13 +1,13 @@
 import { IRead, IModify, IHttp, IPersistence } from "@rocket.chat/apps-engine/definition/accessors";
 import { ISlashCommand, SlashCommandContext } from "@rocket.chat/apps-engine/definition/slashcommands";
 import { sendNotification } from "../messages/sendNotification";
-import { initiatorMessage } from "../messages/initiatorMessage";
-import { getPrompt } from "../persistence/PromptPersistence";
-import { llama } from "../llms/Inference";
-
-
+import { EmbellisherApp } from "../EmbellisherApp";
+import { inference } from "../handlers/InferenceHandler";
 
 export class EmbellishCommand implements ISlashCommand {
+
+    public constructor(private readonly app: EmbellisherApp) {}
+
     public command: string = "embellish";
     public i18nDescription: string = "";
     public i18nParamsExample: string = "";
@@ -18,28 +18,31 @@ export class EmbellishCommand implements ISlashCommand {
         read: IRead,
         modify: IModify,
         http: IHttp,
-        persis: IPersistence
+        persistence: IPersistence
     ): Promise<void> {
+
+        const user = context.getSender();
+		const room = context.getRoom();
         const subcommand = context.getArguments()[0];
 
         if (!subcommand) {
-            await sendNotification(context, modify, read, "Please input a valid prompt or subcommand!");
+            await sendNotification(user, room, modify, read, "Please input a valid prompt or subcommand!");
             throw new Error("Error!");
         }
 
         switch (subcommand) {
 
-            case "redo":
-                let text = context.getArguments().slice(1).join(' ');
-                const new_result = await llama(context, modify, read, http, text);
-                await initiatorMessage(context, modify, text, new_result);
+            case "model":
+                const model_ver = await this.app.getAccessors().environmentReader.getSettings().getValueById('model');
+                const model = model_ver.split('-')[0];
+                await sendNotification(user, room, modify, read, `Selected Model: ${model} \nModel's Version: ${model_ver}`);
                 break;
 
             default:
-                let user = context.getArguments().join(' ')
-                const preprompt = await getPrompt(context.getSender(), read.getPersistenceReader());
-                const result = await llama(context, modify, read, http, user, preprompt);
-                await initiatorMessage(context, modify, user, result);
+                const user_text = context.getArguments().join(' ');
+                const response = await inference(this.app, user, room, modify, read, http, user_text);
+                const data = { user_text, response };
+                await sendNotification(user, room, modify, read, data.response);
                 break;
         }
     }
