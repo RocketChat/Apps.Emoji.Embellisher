@@ -1,7 +1,7 @@
 {
     "id": "41be43bf-180b-42c1-a0d3-747d5b0b515e",
     "version": "0.0.1",
-    "requiredApiVersion": "^1.4.0",
+    "requiredApiVersion": "^1.19.0",
     "iconFile": "icon.png",
     "author": {
         "name": "Sandeep Pillai",
@@ -11,5 +11,6 @@
     "name": "Embellisher",
     "nameSlug": "embellisher",
     "classFile": "EmbellisherApp.ts",
-    "description": "A app that leverages open-source LLMs to turn boring old-school text messages into sensitive modern emojified texts."
+    "description": "A app that leverages open-source LLMs to turn boring old-school text messages into sensitive modern emojified texts.",
+    "implements": []
 }
