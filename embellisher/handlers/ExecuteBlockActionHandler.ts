@@ -3,6 +3,8 @@ import { UIKitBlockInteractionContext, IUIKitResponse } from "@rocket.chat/apps-
 import { EmbellisherApp } from "../EmbellisherApp";
 import { sendMessage } from "../messages/sendMessage";
 import { sendNotification } from "../messages/sendNotification";
+import { editModal } from "../modals/editModal";
+import { redoModal } from "../modals/redoModal";
 
 
 export class ExecuteBlockActionHandler {
@@ -30,11 +32,15 @@ export class ExecuteBlockActionHandler {
                 }
 
                 case 'edit': {
-                    break;
+                    const { user, value, room } = data;
+                    const openEditModal = await editModal(value, user, room, this.read, this.persistence, this.modify)
+                    return context.getInteractionResponder().openModalViewResponse(openEditModal);
                 }
 
                 case 'redo': {
-                    break;
+                    const { user, value, room } = data;
+                    const openRedoModal = await redoModal(value, user, room, this.read, this.persistence, this.modify)
+                    return context.getInteractionResponder().openModalViewResponse(openRedoModal);
                 }
 
                 case 'send': {

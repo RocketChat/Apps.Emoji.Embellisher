@@ -11,8 +11,9 @@ import { App } from '@rocket.chat/apps-engine/definition/App';
 import { IAppInfo } from '@rocket.chat/apps-engine/definition/metadata';
 import { EmbellishCommand } from './commands/EmbellishCommand';
 import { settings } from './config/Settings';
-import { UIKitBlockInteractionContext, IUIKitResponse } from '@rocket.chat/apps-engine/definition/uikit';
+import { UIKitBlockInteractionContext, IUIKitResponse, UIKitViewSubmitInteractionContext } from '@rocket.chat/apps-engine/definition/uikit';
 import { ExecuteBlockActionHandler } from './handlers/ExecuteBlockActionHandler';
+import { ExecuteViewSubmitHandler } from './handlers/ExecuteViewSubmitHandler';
 
 export class EmbellisherApp extends App {
     constructor(info: IAppInfo, logger: ILogger, accessors: IAppAccessors) {
@@ -39,6 +40,23 @@ export class EmbellisherApp extends App {
     ): Promise<IUIKitResponse> {
 
         const handler = new ExecuteBlockActionHandler(
+            this,
+            read,
+            http,
+            persistence,
+            modify
+        );
+        return await handler.run(context);
+    }
+
+    public async executeViewSubmitHandler(
+        context: UIKitViewSubmitInteractionContext,
+        read: IRead,
+        http: IHttp,
+        persistence: IPersistence,
+        modify: IModify
+    ): Promise<IUIKitResponse> {
+        const handler = new ExecuteViewSubmitHandler(
             this,
             read,
             http,
