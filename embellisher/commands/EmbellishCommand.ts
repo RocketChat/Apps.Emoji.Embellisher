@@ -3,6 +3,8 @@ import { ISlashCommand, SlashCommandContext } from "@rocket.chat/apps-engine/def
 import { sendNotification } from "../messages/sendNotification";
 import { EmbellisherApp } from "../EmbellisherApp";
 import { inference } from "../handlers/InferenceHandler";
+import { setResponse } from "../persistence/PromptPersistence";
+import { initiatorMessage } from "../messages/initiatorMessage";
 
 export class EmbellishCommand implements ISlashCommand {
 
@@ -41,8 +43,9 @@ export class EmbellishCommand implements ISlashCommand {
             default:
                 const user_text = context.getArguments().join(' ');
                 const response = await inference(this.app, user, room, modify, read, http, user_text);
+                await setResponse(context.getSender(), persistence, response);
                 const data = { user_text, response };
-                await sendNotification(user, room, modify, read, data.response);
+                await initiatorMessage(user, room, modify, data);
                 break;
         }
     }

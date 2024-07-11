@@ -4,6 +4,7 @@ import { App } from '@rocket.chat/apps-engine/definition/App';
 import { IUser } from '@rocket.chat/apps-engine/definition/users';
 import { IRoom } from '@rocket.chat/apps-engine/definition/rooms';
 import { SystemPrompt } from '../config/SystemPrompt';
+import { getResponse } from '../persistence/PromptPersistence';
 
 export async function inference(
     app: App,
@@ -28,7 +29,7 @@ export async function inference(
 
     const delimiter = "<>"
     const instructs = "--"
-    const prev = "";
+    const prev = await getResponse(user, read.getPersistenceReader());
 
     const promptConfig = new SystemPrompt(
         redo,
