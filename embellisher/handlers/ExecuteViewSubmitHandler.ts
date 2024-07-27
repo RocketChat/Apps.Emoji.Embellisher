@@ -8,6 +8,7 @@ import { setResponse } from "../persistence/PromptPersistence";
 import { getInteractionRoomData } from "../persistence/RoomPersistence";
 import { IRoom } from "@rocket.chat/apps-engine/definition/rooms";
 import { initiatorMessage } from "../messages/initiatorMessage";
+import { setEmoji } from "../persistence/EmojiPersistence";
 
 export class ExecuteViewSubmitHandler {
 
@@ -64,6 +65,7 @@ export class ExecuteViewSubmitHandler {
 
                         } else {
                             await setResponse(user, this.persistence, new_response);
+                            await setEmoji(user, this.persistence, emojify);
 
                             const data = {
                                 user_text: instruct && instruct.trim() !== "" ? instruct : `Only emojify text: ${emojifyNum}%`,

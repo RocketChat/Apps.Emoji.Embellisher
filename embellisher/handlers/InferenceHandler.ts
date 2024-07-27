@@ -5,6 +5,7 @@ import { IUser } from '@rocket.chat/apps-engine/definition/users';
 import { IRoom } from '@rocket.chat/apps-engine/definition/rooms';
 import { SystemPrompt } from '../config/SystemPrompt';
 import { getResponse } from '../persistence/PromptPersistence';
+import { getEmoji } from '../persistence/EmojiPersistence';
 
 export async function inference(
     app: App,
@@ -30,6 +31,7 @@ export async function inference(
     const delimiter = "<>"
     const instructs = "--"
     const prev = await getResponse(user, read.getPersistenceReader());
+    const prevEmoji = await getEmoji(user, read.getPersistenceReader());
 
     const promptConfig = new SystemPrompt(
         redo,
@@ -37,6 +39,7 @@ export async function inference(
         delimiter,
         instructs,
         prev,
+        prevEmoji,
     );
 
     let system_message = "";
@@ -50,7 +53,7 @@ export async function inference(
 
     let prompt = `${delimiter} ${text} ${delimiter}`
     if(redo) {
-        prompt = text?.length ? `${instructs} ${text} ${instructs}` : `Only emojify text: ${emojify}%`;
+        prompt = text?.length ? `${instructs} ${text} ${instructs}` : `Emojify text: ${emojify}%`;
     }
 
     const body = {
