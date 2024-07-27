@@ -5,6 +5,7 @@ import { IUser } from "@rocket.chat/apps-engine/definition/users";
 import { getResponse } from "../persistence/PromptPersistence";
 import { IRoom } from "@rocket.chat/apps-engine/definition/rooms";
 import { getInteractionRoomData, storeInteractionRoomData } from "../persistence/RoomPersistence";
+import { getEmoji } from "../persistence/EmojiPersistence";
 
 export async function redoModal(
     value,
@@ -18,6 +19,7 @@ export async function redoModal(
     let roomId;
     const viewId = "redo-modal";
     const response = await getResponse(user, read.getPersistenceReader());
+    const prevEmoji = await getEmoji(user, read.getPersistenceReader());
     const block = modify.getCreator().getBlockBuilder();
 
     if(room?.id) {
@@ -48,7 +50,7 @@ export async function redoModal(
                 text: "Enter emojification % (any number between 1 to 100%)",
                 type: TextObjectType.PLAINTEXT,
             },
-            initialValue: "50",
+            initialValue: prevEmoji,
         }),
     });
 

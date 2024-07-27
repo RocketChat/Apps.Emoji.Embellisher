@@ -5,6 +5,7 @@ import { EmbellisherApp } from "../EmbellisherApp";
 import { inference } from "../handlers/InferenceHandler";
 import { setResponse } from "../persistence/PromptPersistence";
 import { initiatorMessage } from "../messages/initiatorMessage";
+import { setEmoji } from "../persistence/EmojiPersistence";
 
 export class EmbellishCommand implements ISlashCommand {
 
@@ -42,8 +43,9 @@ export class EmbellishCommand implements ISlashCommand {
 
             default:
                 const user_text = context.getArguments().join(' ');
+                await setEmoji(user, persistence, "50");
                 const response = await inference(this.app, user, room, modify, read, http, user_text);
-                await setResponse(context.getSender(), persistence, response);
+                await setResponse(user, persistence, response);
                 const data = { user_text, response };
                 await initiatorMessage(user, room, modify, data);
                 break;
