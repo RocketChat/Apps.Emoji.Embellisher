@@ -68,7 +68,7 @@ export class ExecuteViewSubmitHandler {
                             await setEmoji(user, this.persistence, emojify);
 
                             const data = {
-                                user_text: instruct && instruct.trim() !== "" ? instruct : `Only emojify text: ${emojifyNum}%`,
+                                user_text: instruct && instruct.trim() !== "" ? instruct : `Emojify text: ${emojifyNum}%`,
                                 response: new_response
                             };
 

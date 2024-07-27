@@ -20,13 +20,26 @@ export async function inference(
     temperature: number = 0.3,
 ): Promise<string> {
 
-    const headers = {
+    const model_ver = await app.getAccessors().environmentReader.getSettings().getValueById('model');
+    let model = model_ver.split('-')[0];
+    let url = `http://${model_ver}/v1`;
+    let headers = {
         "Content-Type": "application/json",
+        "Authorization": ""
     };
 
-    const model_ver = await app.getAccessors().environmentReader.getSettings().getValueById('model');
-    const model = model_ver.split('-')[0];
-    const url = `http://${model_ver}/v1`;
+    const model_name = await app.getAccessors().environmentReader.getSettings().getValueById('model-name');
+    const model_url = await app.getAccessors().environmentReader.getSettings().getValueById('model-url');
+    const model_key = await app.getAccessors().environmentReader.getSettings().getValueById('model-key');
+
+    if(model_name && model_url && model_key){
+        model = model_name;
+        url = model_url;
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${model_key}`
+        }
+    }
 
     const delimiter = "<>"
     const instructs = "--"
