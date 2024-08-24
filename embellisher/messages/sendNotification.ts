@@ -7,13 +7,14 @@ export async function sendNotification(
     room: IRoom,
     modify: IModify,
     read: IRead,
-    text: string
+    text: string,
+    emoji?
 ): Promise<void> {
 
     const notifier = read.getNotifier();
     const messageBuilder = notifier.getMessageBuilder();
 
-    messageBuilder.setRoom(room).setText(text);
+    messageBuilder.setRoom(room).setText(text).setEmojiAvatar(emoji);
 
     await notifier.notifyUser(user, messageBuilder.getMessage());
 }

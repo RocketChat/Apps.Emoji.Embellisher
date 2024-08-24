@@ -4,7 +4,7 @@ import { EmbellisherApp } from "../EmbellisherApp";
 import { sendMessage } from "../messages/sendMessage";
 import { sendNotification } from "../messages/sendNotification";
 import { inference } from "./InferenceHandler";
-import { setResponse } from "../persistence/PromptPersistence";
+import { getResponse, setResponse } from "../persistence/PromptPersistence";
 import { getInteractionRoomData } from "../persistence/RoomPersistence";
 import { IRoom } from "@rocket.chat/apps-engine/definition/rooms";
 import { initiatorMessage } from "../messages/initiatorMessage";
@@ -30,6 +30,29 @@ export class ExecuteViewSubmitHandler {
             const { user, view } = data
 
             switch(view.id) {
+
+                case 'frwd-modal': {
+                    const { roomId } = await getInteractionRoomData(this.read.getPersistenceReader(), user.id);
+                    if(roomId) {
+                        const room = await this.read.getRoomReader().getById(roomId) as IRoom;
+                        const roomName = view.state?.["room-block"]?.["room"] as string;
+                        const roomToSend = await this.read.getRoomReader().getByName(roomName) as IRoom;
+
+                        if(roomToSend == undefined) {
+                            await sendNotification(user, room, this.modify, this.read, `${roomName} - Invalid Room! Check if the room exists.`, ':warning:');
+                        }
+
+                        const text = await getResponse(user, this.read.getPersistenceReader());
+
+                        if((typeof(text) == undefined || text.length == 0)) {
+                            await sendNotification(user, roomToSend, this.modify, this.read, 'Invalid Input!');
+                        } else {
+                            await sendMessage(text, user, roomToSend, this.modify);
+                            await sendNotification(user, room, this.modify, this.read, 'Message forwarded successfully!', ':white_check_mark:');
+                        }
+                    }
+                    break;
+                }
 
                 case 'edit-modal': {
                     const { roomId } = await getInteractionRoomData(this.read.getPersistenceReader(), user.id);
@@ -75,7 +98,6 @@ export class ExecuteViewSubmitHandler {
                             await initiatorMessage(user, room, this.modify, data);
                         }
                     }
-
                     break;
                 }
 

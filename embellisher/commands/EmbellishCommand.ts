@@ -29,7 +29,7 @@ export class EmbellishCommand implements ISlashCommand {
         const subcommand = context.getArguments()[0];
 
         if (!subcommand) {
-            await sendNotification(user, room, modify, read, "Please input a valid prompt or subcommand!");
+            await sendNotification(user, room, modify, read, "Please input a valid prompt or subcommand!", ":warning:");
             throw new Error("Error!");
         }
 
@@ -44,9 +44,13 @@ export class EmbellishCommand implements ISlashCommand {
             default:
                 const user_text = context.getArguments().join(' ');
                 await setEmoji(user, persistence, "50");
+                await sendNotification(user, room, modify, read, "Your message is being generated. Please wait...", ":hourglass_flowing_sand:");
+
                 const response = await inference(this.app, user, room, modify, read, http, user_text);
                 await setResponse(user, persistence, response);
+
                 const data = { user_text, response };
+                await sendNotification(user, room, modify, read, data.response);
                 await initiatorMessage(user, room, modify, data);
                 break;
         }

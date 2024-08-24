@@ -5,6 +5,7 @@ import { sendMessage } from "../messages/sendMessage";
 import { sendNotification } from "../messages/sendNotification";
 import { editModal } from "../modals/editModal";
 import { redoModal } from "../modals/redoModal";
+import { forwardModal } from "../modals/forwardModal";
 
 
 export class ExecuteBlockActionHandler {
@@ -27,8 +28,10 @@ export class ExecuteBlockActionHandler {
             const { actionId } = data
 
             switch(actionId) {
-                case 'copy': {
-                    break;
+                case 'frwd': {
+                    const { user, value, room } = data;
+                    const openForwarddModal = await forwardModal(value, user, room, this.read, this.persistence, this.modify)
+                    return context.getInteractionResponder().openModalViewResponse(openForwarddModal);
                 }
 
                 case 'edit': {
@@ -68,6 +71,5 @@ export class ExecuteBlockActionHandler {
             console.log(err);
             return context.getInteractionResponder().errorResponse();
         }
-
     }
 }

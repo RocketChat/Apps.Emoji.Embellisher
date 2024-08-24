@@ -13,5 +13,5 @@ export async function sendMessage(
 
     message.setSender(user).setRoom(room).setText(value);
 
-    await modify.getCreator().finish(message)
+    await modify.getCreator().finish(message);
 }

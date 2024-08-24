@@ -10,19 +10,16 @@ export async function initiatorMessage(
     data: any,
 ): Promise<void> {
 
-    const builder = await modify.getCreator().startMessage().setRoom(room)
+    const builder = await modify.getCreator().startMessage().setRoom(room).setGroupable(true);
     const block = modify.getCreator().getBlockBuilder();
-
-    block.addSectionBlock({
-        text: block.newMarkdownTextObject(`${data.response}`),
-    });
 
     block.addActionsBlock({
         blockId: "embellish",
         elements: [
             block.newButtonElement({
-                actionId: "copy",
-                text: block.newPlainTextObject("Copy"),
+                actionId: "frwd",
+                text: block.newPlainTextObject("Forward"),
+                value: data.response,
             }),
             block.newButtonElement({
                 actionId: "edit",
