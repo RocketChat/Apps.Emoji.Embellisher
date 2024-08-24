@@ -8,6 +8,7 @@ export const settings: Array<ISetting> = [
 		type: SettingType.SELECT,
 		values: [
 			{ key: 'llama3-70b', i18nLabel: 'Llama3 70B' },
+            { key: 'llama3-8b', i18nLabel: 'Llama3 8B' },
 			{ key: 'mistral-7b', i18nLabel: 'Mistral 7B' },
 		],
 		required: true,
