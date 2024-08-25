@@ -95,6 +95,7 @@ export class ExecuteViewSubmitHandler {
                                 response: new_response
                             };
 
+                            await sendNotification(user, room, this.modify, this.read, data.response);
                             await initiatorMessage(user, room, this.modify, data);
                         }
                     }

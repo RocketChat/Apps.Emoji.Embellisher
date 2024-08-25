@@ -60,6 +60,10 @@ export async function inference(
 
     if(use_case == 'event-promotions') {
         system_message = await promptConfig.eventPromotions();
+    } else if(use_case == 'customer-support') {
+        system_message = await promptConfig.customerSupport();
+    } else if(use_case == 'healthcare-support') {
+        system_message = await promptConfig.healthcareSupport();
     } else {
         system_message = await promptConfig.communication();
     }
