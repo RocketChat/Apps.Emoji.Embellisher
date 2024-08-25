@@ -12,5 +12,6 @@
     "nameSlug": "embellisher",
     "classFile": "EmbellisherApp.ts",
     "description": "A app that leverages open-source LLMs to turn boring old-school text messages into sensitive modern emojified texts.",
-    "implements": []
+    "implements": [],
+    "permissions": []
 }
