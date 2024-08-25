@@ -14,7 +14,7 @@ export const settings: Array<ISetting> = [
 		required: true,
 		public: true,
         section: "InHouseModel",
-		packageValue: 'llama3-70b',
+		packageValue: 'llama3-8b',
 	},
     {
 		id: 'model-name',

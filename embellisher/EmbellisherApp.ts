@@ -1,5 +1,6 @@
 import {
     IAppAccessors,
+    IAppInstallationContext,
     IConfigurationExtend,
     IHttp,
     ILogger,
@@ -14,6 +15,7 @@ import { settings } from './config/Settings';
 import { UIKitBlockInteractionContext, IUIKitResponse, UIKitViewSubmitInteractionContext } from '@rocket.chat/apps-engine/definition/uikit';
 import { ExecuteBlockActionHandler } from './handlers/ExecuteBlockActionHandler';
 import { ExecuteViewSubmitHandler } from './handlers/ExecuteViewSubmitHandler';
+import { directMessage } from './messages/directMessage';
 
 export class EmbellisherApp extends App {
     constructor(info: IAppInfo, logger: ILogger, accessors: IAppAccessors) {
@@ -64,5 +66,16 @@ export class EmbellisherApp extends App {
             modify
         );
         return await handler.run(context);
+    }
+
+    public async onInstall(
+        context: IAppInstallationContext,
+        read: IRead,
+        http: IHttp,
+        persistence: IPersistence,
+        modify: IModify
+    ): Promise<void> {
+        const user = context.user;
+        await directMessage(user, read, modify);
     }
 }

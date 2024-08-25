@@ -6,6 +6,7 @@ import { inference } from "../handlers/InferenceHandler";
 import { setResponse } from "../persistence/PromptPersistence";
 import { initiatorMessage } from "../messages/initiatorMessage";
 import { setEmoji } from "../persistence/EmojiPersistence";
+import { helpMessage } from "../helpers/helpMessage";
 
 export class EmbellishCommand implements ISlashCommand {
 
@@ -34,6 +35,10 @@ export class EmbellishCommand implements ISlashCommand {
         }
 
         switch (subcommand) {
+
+            case 'help':
+                await sendNotification(user, room, modify, read, helpMessage);
+                break;
 
             case "model":
                 const model_ver = await this.app.getAccessors().environmentReader.getSettings().getValueById('model');
