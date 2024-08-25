@@ -55,7 +55,7 @@ export const settings: Array<ISetting> = [
             { key: 'communication', i18nLabel: 'Text Communication' },
 			{ key: 'event-promotions', i18nLabel: 'Event Promotions' },
 			{ key: 'customer-support', i18nLabel: 'Customer Support' },
-            { key: 'marketing-sales', i18nLabel: 'Marketing and Sales' }
+            { key: 'healthcare-support', i18nLabel: 'Healthcare Support' }
 		],
 		required: true,
 		public: true,
