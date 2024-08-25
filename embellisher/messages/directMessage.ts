@@ -16,5 +16,14 @@ export async function directMessage(
 
     const message = `Hello **${user.name}!** Thank you for installing the **Rocket.Chat - AI Emoji Embellisher App**. :raised_hands: \n` + welcomeMessage;
 
-    await sendMessage(message, appUser, room, modify);
+    const textMessageBuilder = modify
+        .getCreator()
+        .startMessage()
+        .setRoom(room)
+        .setSender(appUser)
+        .setGroupable(true)
+        .setParseUrls(false)
+        .setText(message);
+
+    await modify.getCreator().finish(textMessageBuilder);
 }
