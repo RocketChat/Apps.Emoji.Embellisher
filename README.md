@@ -1,11 +1,19 @@
 <div align="center">
-<img width=30% src="https://github.com/user-attachments/assets/a92f27b9-5101-4725-8311-a0e6ada0edc7" alt="chat-summarizer-illustration">
+  <img width=30% src="https://github.com/user-attachments/assets/a92f27b9-5101-4725-8311-a0e6ada0edc7" alt="chat-summarizer-illustration">
 </div>
 
-<h1 align="center">Rocket.Chat AI Emoji Embellisher App</h1>
+<h1 align="center">AI Emoji Embellisher App</h1>
 
 <p align="justify">
   A Rocket.Chat app that leverages open-source large language models - LLMs (Mistral, Llama, Phi, Gemma and so on) to turn boring old-school text messages into sensitive modern emojified texts. User can copy, edit, redo, or send the embellished text messages.
+</p>
+
+<p align="center">
+  <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/wiki#-----embellisher-app-demo">View Demo</a>
+  ·
+  <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/issues">Request Feature</a>
+  ·
+  <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/issues/new">Report Bug</a>
 </p>
 
 ## Documentation
