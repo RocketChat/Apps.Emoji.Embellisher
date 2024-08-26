@@ -22,6 +22,7 @@
   [![Forks][forks-shield]][forks-url]
   [![Stargazers][stars-shield]][stars-url]
   [![Issues][issues-shield]][issues-url]
+  [![MIT License][license-shield]][license-url]
 
 </div>
 
@@ -51,3 +52,5 @@ Some links to examples and documentation:
 [issues-shield]: https://img.shields.io/github/issues/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
 [issues-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/issues
 
+[license-shield]: https://img.shields.io/github/license/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[license-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/blob/main/LICENSE
