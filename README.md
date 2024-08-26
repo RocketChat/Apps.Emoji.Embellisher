@@ -53,4 +53,5 @@ Some links to examples and documentation:
 [issues-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/issues
 
 [license-shield]: https://img.shields.io/github/license/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
-[license-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/blob/master/LICENSE.txt
+[license-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/blob/main/LICENSE
+
