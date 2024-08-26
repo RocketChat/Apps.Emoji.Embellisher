@@ -26,7 +26,23 @@
 
 </div>
 
-## Documentation
+## 📘 Getting Started
+
+
+## ⚙️ Installation
+
+
+## ✅ Project Overview
+
+
+## 👷‍♀️ Architecture
+
+## 🚀 Usage
+
+## 🧑‍💻 Contributing
+
+
+## 📚 Resources
 Some links to examples and documentation:
 - [Rocket.Chat Apps TypeScript Definitions Documentation](https://rocketchat.github.io/Rocket.Chat.Apps-engine/)
 - [Rocket.Chat Apps TypeScript Definitions Repository](https://github.com/RocketChat/Rocket.Chat.Apps-engine)
