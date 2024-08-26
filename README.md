@@ -16,6 +16,16 @@
   <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/issues/new">Report Bug</a>
 </p>
 
+<div align="center">
+  
+  [![Contributors][contributors-shield]][contributors-url] 
+  [![Forks][forks-shield]][forks-url]
+  [![Stargazers][stars-shield]][stars-url]
+  [![Issues][issues-shield]][issues-url]
+  [![MIT License][license-shield]][license-url]
+
+</div>
+
 ## Documentation
 Some links to examples and documentation:
 - [Rocket.Chat Apps TypeScript Definitions Documentation](https://rocketchat.github.io/Rocket.Chat.Apps-engine/)
@@ -27,3 +37,20 @@ Some links to examples and documentation:
   - [App Guides](https://forums.rocket.chat/c/rocket-chat-apps/guides)
   - [Top View of Both Categories](https://forums.rocket.chat/c/rocket-chat-apps)
 
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[contributors-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[forks-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[stars-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[issues-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/issues
+
+[license-shield]: https://img.shields.io/github/license/RocketChat/Apps.Emoji.Embellisher?style=for-the-badge
+[license-url]: https://github.com/RocketChat/Apps.Emoji.Embellisher/blob/master/LICENSE.txt
