@@ -28,8 +28,27 @@
 
 ## 📘 Getting Started
 
+<div align="justify">
+  
+**Setting up a Rocket.Chat server**
+- To set up your Rocket.Chat server manually, follow these steps: [Local Development](https://github.com/RocketChat/Rocket.Chat?tab=readme-ov-file#%EF%B8%8F-local-development).
+- To set it up using Docker, download the following `compose.yml` file: [Docker Image](https://github.com/RocketChat/Docker.Official.Image/blob/fb09fece013b05ce7c0d8a42b646543a75fda57a/compose.yml). Then, navigate to the directory where the file was downloaded and run the following command:
+    ```sh
+    docker compose up -d
+    ```
+    **Note:** If you encounter errors with `docker compose` while using an Apple Silicon device, follow the solution mentioned here: [Issues](https://github.com/RocketChat/Docker.Official.Image/issues/204).
+
+**Apps Engine for Rocket.Chat**
+- Get started with the Apps-Engine to develop your own apps that can be integrated with your Rocket.Chat server.
+- Follow the docs to explore the wide range of integration possibilities within the Rocket.Chat ecosystem: [Apps-Engine framework](https://developer.rocket.chat/docs/getting-started-with-apps-engine).
+- To install the Apps-Engine CLI, run the following command:
+    ```sh
+    npm install -g @rocket.chat/apps-cli
+    ``` 
+</div>
 
 ## ⚙️ Installation
+
 
 
 ## ✅ Project Overview
