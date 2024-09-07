@@ -50,6 +50,25 @@
 ## ⚙️ Installation
 **First, ensure that you have set up a Rocket.Chat server by following the instructions in the [Getting Started](#-getting-started) section above.**
 
+1. Fork the repository, then clone the forked repository under your username to your local system:
+    ```sh
+    git clone https://github.com/<your-username>/Apps.Emoji.Embellisher
+    ```
+    
+2. Install app dependencies:
+    ```sh
+    cd embellisher && npm install
+    ```
+
+3. Deploy the app to your server:
+   ```sh
+   rc-apps deploy --url <url> --username <username> --password <password>
+   ```
+   
+<p align="justify">
+  Once deployed, users have the flexibility to set their preferences for using different app features. They can navigate to <strong>"Installed Apps" -> "Private Apps,"</strong> and under <strong>"Settings"</strong> provide their own <code>LLM API url</code>, <code>key</code>, and <code>model name</code>, or stick with the in-house LLM model. Additionally, they can switch between embellishment use cases in this section.
+</p>
+
 
 ## ✅ Project Overview
 
