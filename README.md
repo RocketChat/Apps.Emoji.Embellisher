@@ -48,7 +48,7 @@
 </div>
 
 ## ⚙️ Installation
-
+**First, ensure that you have set up a Rocket.Chat server by following the instructions in the [Getting Started](#-getting-started) section above.**
 
 
 ## ✅ Project Overview
