@@ -69,16 +69,37 @@
   Once deployed, users have the flexibility to set their preferences for using different app features. They can navigate to <strong>"Installed Apps" -> "Private Apps,"</strong> and under <strong>"Settings"</strong> provide their own <code>LLM API url</code>, <code>key</code>, and <code>model name</code>, or stick with the in-house LLM model. Additionally, they can switch between embellishment use cases in this section.
 </p>
 
-
 ## ✅ Project Overview
-
+<p align="justify">
+  Text embellishment is a natural language generation problem that aims to enhance the lexical and syntactic complexity of a text while retaining the same semantic information and meaning. This is often achieved by incorporating emojis, punctuation, and additional details to make the text more interesting and engaging. This project delves into the Embellisher App for Rocket.Chat. This app will enable users to generate emojified / embellished text messages from plain text messages they enter in the message box using open-source LLMs. Upon generation, the user will be notified with an interactive message that only the sender can see. Using the interactive action button, the user can copy, edit, redo, or send the embellished text message. Read this <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/wiki">wiki</a> to know more about this project.
+</p>
 
 ## 👷‍♀️ Architecture
 
 ## 🚀 Usage
+📝 **Slash Commands**: Access the app using the slash command **`/embellish`**, followed by the message you want to embellish.
+
+💬 **Block Actions**: Use **`forward`** 📨 , **`edit`** ✍ , **`redo`** 🔁 and **`send`** action blocks on the LLM generated response.
+
+⚙ **Model Selection Settings**: Select your model from the different in-house LLMs for your message embellishment.
+
+💻 **User Hosted LLM Settings**: Alternatively, you can also provide access to your own LLM APIs in the app settings.
+
+🎯 **Use-case Selection Settings**: Select from a variety system prompts through your required use-case selections.
+
+
+<br>To assist you further, use **`/embellish help`** to get a brief of the available subcommands.
 
 ## 🧑‍💻 Contributing
+<p align="justify">
+  Contributions make the open-source community an incredible place to learn, inspire, and create, and any you make are <strong>greatly appreciated</strong>. If you have suggestions for improvement, please fork the repo, create a pull request, or simply open an issue. And don't forget to give the project a star—thanks again!
+</p>
 
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feat/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: adds some amazing feature'`)
+4. Push to the Branch (`git push origin feat/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📚 Resources
 Some links to examples and documentation:
