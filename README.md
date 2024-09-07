@@ -79,13 +79,21 @@
 ## 🚀 Usage
 <p align="justify">
   📝 <strong>Slash Commands</strong>: Access the app using the slash command <strong><code>/embellish</code></strong>, followed by the message you want to embellish.
+</p>
 
+<p align="justify">
   💬 <strong>Block Actions</strong>: Use <strong><code>forward</code></strong> 📨, <strong><code>edit</code></strong> ✍, <strong><code>redo</code></strong> 🔁, and <strong><code>send</code></strong> action blocks on the LLM generated response.
+</p>
 
+<p align="justify">
   ⚙ <strong>Model Selection Settings</strong>: Select your model from the different in-house LLMs for your message embellishment.
+</p>
 
+<p align="justify">
   💻 <strong>User Hosted LLM Settings</strong>: Alternatively, you can also provide access to your own LLM APIs in the app settings.
+</p>
 
+<p align="justify">
   🎯 <strong>Use-case Selection Settings</strong>: Select from a variety of system prompts through your required use-case selections.
 </p>
 
