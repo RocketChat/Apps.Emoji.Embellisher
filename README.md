@@ -74,8 +74,6 @@
   Text embellishment is a natural language generation problem that aims to enhance the lexical and syntactic complexity of a text while retaining the same semantic information and meaning. This is often achieved by incorporating emojis, punctuation, and additional details to make the text more interesting and engaging. This project delves into the Embellisher App for Rocket.Chat. This app will enable users to generate emojified / embellished text messages from plain text messages they enter in the message box using open-source LLMs. Upon generation, the user will be notified with an interactive message that only the sender can see. Using the interactive action button, the user can copy, edit, redo, or send the embellished text message. Read this <a href="https://github.com/RocketChat/Apps.Emoji.Embellisher/wiki">wiki</a> to know more about this project.
 </p>
 
-## 👷‍♀️ Architecture
-
 ## 🚀 Usage
 ```
 
